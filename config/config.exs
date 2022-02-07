@@ -12,7 +12,8 @@ config :elixir_live_deploy,
 
 # Configures the endpoint
 config :elixir_live_deploy, ElixirLiveDeployWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [scheme: "https", host: "elixir-live-deploy.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   render_errors: [view: ElixirLiveDeployWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: ElixirLiveDeploy.PubSub,
   live_view: [signing_salt: "UZj9xgEz"]
